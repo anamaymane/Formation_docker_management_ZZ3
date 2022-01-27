@@ -1,0 +1,8 @@
+Try sql injection:
+    - using the application directly
+    - owasp_mod_secrity
+
+Inputs:
+
+    - email: a' or 3 = 3 --
+    - password: any string

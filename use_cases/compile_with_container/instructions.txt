@@ -1,0 +1,2 @@
+docker build -t compile_with_gcc .
+docker run -v $(pwd):/project --name compile compile_with_gcc bash -c "cd /project && gcc -o exe demo_file.c"

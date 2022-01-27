@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    env_file:
+      - wordpress.env
+    volumes:
+      - wordpress_volume:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - mysql.env
+    volumes:
+      - sql_db_volume:/var/lib/mysql
+
+volumes:
+  wordpress_volume:
+  sql_db_volume:
