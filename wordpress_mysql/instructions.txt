@@ -1,0 +1,15 @@
+$ docker network create wp-network
+
+$ docker volume create sql_db_volume_docker
+
+
+$ docker run --name mysql_db --network wp-network \
+--mount source=sql_db_volume_docker,target=/var/lib/mysql \
+ -–env-file mysql.env –d mysql:5.7
+
+$ docker volume create wordpress_volume_docker
+
+
+$ docker run --name wordpress_instance  --network wp-network \ 
+--mount source=wordpress_volume_docker,target=/var/www/html  \
+–-env-file wordpress.env -p 8080:80 -d wordpress
